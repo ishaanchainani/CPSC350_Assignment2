@@ -50,14 +50,12 @@ int main(int argc, char** argv){
 //   //if user chooses for random generation
 //   if(menuObject.genChoice == 1){
 //     gridObject = menuObject.userMapDimensions();
-//     cout << "Now entering map size." << endl;
 //     int height = 0;
 //     int width = 0;
 //     float density = 0;
 //     height = menuObject.userMapDimensions();
 //     width = menuObject.userMapDimensions();
 //
-//     cout << "Now entering map density" << endl;
 //     density = menuObject.userMapDensity();
 //     int gameMode = menuObject.userMode();
 //     gridObject = new Grid();

@@ -33,15 +33,18 @@ Menu::~Menu(){
 int Menu::userGenInput(){
   int userMode = 0;
   bool validInput = true;
-  while(!validInput){
-    cout << "Would you like to start with a random configuration or read in a file?" << endl;
+  while(validInput){
+    cout << endl << "Would you like to start with a random configuration or read in a file?" << endl;
     cout << "Press '1' for random, and '2' for set configuration: " << endl;
     cin >> userMode;
-    if(userMode != 1 || userMode != 2){
-      cout << "You did not enter a valid input. Please try again." << endl;
+    if(userMode == 1){
       validInput = false;
     }
-    else if(userMode == 1 || userMode ==2){
+    else if(userMode == 2){
+      validInput = false;
+    }
+    else {
+      cout << "You did not enter a valid input. Please try again." << endl;
       validInput = true;
     }
   }
@@ -54,7 +57,7 @@ int Menu::userMapDimensions(){
   while(!isValid){
     cout << "Please enter a value from 1 to 100: ";
     cin >> dimension;
-    if(dimension > 0 && dimension < 100){
+    if(dimension > 0 && dimension <= 100){
       isValid = true;
     }
     else{
@@ -71,15 +74,15 @@ float Menu::userMapDensity(){
   bool validInput = true;
   float mapDensity;
 
-  cin >> mapDensity;
-  while(!validInput){
+  while(validInput){
     cout << "Enter a decimal value greater than 0 and less than or equal to 1 for population density:  ";
     cin >> mapDensity;
     if(mapDensity > 1 || mapDensity < 0){
       cout << "You did not enter a valid input. Please try again." << endl;
+      validInput = true;
     }
     else{
-      validInput = true;
+      validInput = false;
     }
   }
   return mapDensity;
@@ -173,18 +176,18 @@ bool Menu::checkWidth(string*& linesInFile, int totalLines, int columns){
 // asks user which mode they would like to play in
 int Menu::userMode(){
   bool gameModeIsValid = true;
-  while(!gameModeIsValid){
+  while(gameModeIsValid){
     cout << endl;
     cout << "Would you like to play in classic mode, doughnut mode, or mirror mode?" << endl;
     cout << "Enter '1' for classic, '2' for doughnut, or '3' for mirror: ";
     cin >> gameMode;
     if(gameMode == 1 || gameMode == 2 || gameMode == 3){
-      gameModeIsValid = true;
+      gameModeIsValid = false;
     }
     else{
       cout << endl;
       cout << "You did not enter a valid option. Please try again." << endl;
-      gameModeIsValid = false;
+      gameModeIsValid = true;
     }
   }
   return gameMode;

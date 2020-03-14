@@ -5,6 +5,7 @@
 
 using namespace std;
 
+int numGenerations = 1;
 // constructor
 Grid::Grid(int height, int width, float density, int gameMode){
 	this->height = height;
@@ -198,6 +199,7 @@ string Grid::nextGen(){
 
 	for(int i = 0; i < height; ++i){
 		for(int j = 0; j < width; ++j){
+			numGenerations++;
 			if(gameBoard[i][j] == 'X'){
 				if(countNeighbors(i,j) == 2){
 					gridString += "X";
@@ -211,7 +213,7 @@ string Grid::nextGen(){
 			}
 			else if(gameBoard[i][j] == '-'){
 				if(countNeighbors(i,j) ==3){
-					gridString += "x";
+					gridString += "X";
 				}
 				else{
 					gridString += "-";
@@ -220,6 +222,16 @@ string Grid::nextGen(){
 		}
 	}
 	return gridString;
+}
+
+int Grid::countPopulation(string stringInput){
+	population = 0;
+	for(int i = 0; i < stringInput.length(); ++i){
+		if(stringInput[i] == 'X'){
+			population++;
+		}
+	}
+	return population;
 }
 
 // takes a string of all grid elements

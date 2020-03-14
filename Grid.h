@@ -8,6 +8,8 @@ public:
   void createGrids();
   void deleteGrids();
 
+  int userChoice;
+  int numGenerations;
   int width;
   int height;
   float density;
@@ -17,6 +19,7 @@ public:
   int totalNeighbors;
   int randX, randY;
   int x;
+  int population;
   int y;
   string prev;
   Grid();
@@ -30,6 +33,7 @@ public:
   int randomizeGrid(float density);
   void gridFromString(string prevGen);
   void populateGrid();
+  int countPopulation(string stringInput);
 
 
 

@@ -2,7 +2,7 @@
 using namespace std;
 //constructor
 fileReader::fileReader(string fileName){
-  cout << fileName << endl;
+  //cout << fileName << endl;
   ReadFile(fileName);
 };
 
@@ -15,7 +15,7 @@ fileReader::~fileReader(){
 void fileReader::ReadFile(string fileName){
   fileStream.open(fileName);
 
-  cout << fileName << endl;
+  //cout << fileName << endl;
   // if file is unable to open
   if(!fileStream){
     throw runtime_error("Could not open " +fileName);
@@ -30,12 +30,12 @@ void fileReader::ReadFile(string fileName){
   while(getline(fileStream,line)){
     ++totaLines;
   }
-  cout << "here" << endl;
+  //cout << "here!!!!!!!" << endl;
   fileStream.clear();
   //resets fileStream to position 0
   fileStream.seekg(0);
-  cout << "here now" << endl;
-  cout << "Total lines " << totaLines << endl;
+  //cout << "here now" << endl;
+  //cout << "Total lines " << totaLines << endl;
 
   //creating an array to hold totalLines
   string* fileLines = new string[totalLines];
@@ -100,7 +100,7 @@ bool fileReader::checkWidth(string*& fileLines, int totalLines, int columns){
 }
 
 // method to write to file
-void fileReader::WriteToFile(string fileName, string strToWrite){
+void fileReader::WriteToFile(string fileName, string writeToFile){
   // declaring output file stream
   ofstream outfileStream;
   outfileStream.open(fileName, ofstream::app);
@@ -108,6 +108,6 @@ void fileReader::WriteToFile(string fileName, string strToWrite){
   if(!outfileStream){
     throw runtime_error("Cannot open.");
   }
-  outfileStream << strToWrite << endl;
+  outfileStream << writeToFile << endl;
   outfileStream.close();
 }

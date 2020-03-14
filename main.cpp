@@ -69,7 +69,7 @@ int main(int argc, char** argv){
 
     // if user chooses choice 1 for output
     if(outputChoice ==1){
-      g1->randomizeGrid(density)
+      g1->randomizeGrid(density);
       string currString = g1->printGrid();
       //g1->countNeighbors(height, width);
       cout << "Generation 1: " << endl;
